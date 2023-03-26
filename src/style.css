@@ -18,11 +18,21 @@ body {
     rgb(255, 247, 228) 90%
   );
 }
-ul {
+li {
   margin: 0;
   padding: 0;
   list-style: none;
+  font-size: 18px;
+  line-height: 19px;
+  font-weight: 200;
 }
+li::first-letter {
+  text-transform: capitalize;
+}
+
+.weather-icon {
+}
+
 .weather-app-wrapper {
   max-width: 650px;
   margin: 35px auto;
