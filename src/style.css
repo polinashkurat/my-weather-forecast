@@ -5,6 +5,10 @@ h1 {
   margin-bottom: 0;
   font-weight: 400;
 }
+small {
+  display: block;
+  text-align: center;
+}
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

@@ -41,9 +41,21 @@ function showTemperature(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+function search(city) {
+  let apiKey = "bb28dfe1c21bc599506b6a9e6b1eb115";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(showTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
 
 let apiKey = "bb28dfe1c21bc599506b6a9e6b1eb115";
 let city = "New York";
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-axios.get(url).then(showTemperature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

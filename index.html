@@ -18,6 +18,27 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="location">
+            <form id="search-form" class="mb-3">
+              <div class="row">
+                <div class="col-9">
+                  <input
+                    type="search"
+                    placeholder="Enter a city"
+                    class="form-control"
+                    id="city-input"
+                    autocomplete="off"
+                  />
+                </div>
+                <div class="col-3">
+                  <input
+                    type="submit"
+                    value="Search"
+                    class="btn btn-primary w-100"
+                    id="button"
+                  />
+                </div>
+              </div>
+            </form>
             <h1 id="city"></h1>
             <ul>
               <li>Last updated:<span id="date"></span></li>
@@ -43,6 +64,14 @@
           </div>
         </div>
       </div>
+      <small
+        ><a
+          href="https://github.com/polinashkurat/my-weather-forecast"
+          target="_blank"
+          >Open-source code</a
+        >
+        by Polina Shkurat</small
+      >
     </div>
     <script src="src/app.js"></script>
   </body>
