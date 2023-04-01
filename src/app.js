@@ -21,6 +21,20 @@ function formatDate(timestamp) {
   return ` ${day}, ${hours}:${minutes}`;
 }
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = (forecastElement.innerHTML = ` <div class="row">
+              <div class="col-2">
+                <div class="weather-forecast-date">Thu</div>
+                <img src="" alt="" width="40" />
+                <div class="weather-forecast-temp">
+                  <span class="weather-forecast-temp-max">18° </span
+                  ><span class="weather-forecast-temp-min">12° </span>
+                </div>
+              </div>
+            </div>`);
+}
+
 function showTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -29,6 +43,7 @@ function showTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#weather-icon");
+
   celsiusTemp = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -61,26 +76,26 @@ let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api
 function showFahrenheitTemp(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  celciusLink.classList.remove("active");
+  celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
-function showCelciusTemp(event) {
+function showCelsiusTemp(event) {
   event.preventDefault();
-  celciusLink.classList.add("active");
+  celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celciusTemp);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 }
-let celciusTemp = null;
+let celsiusTemp = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", showCelciusTemp);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
 
 search("Düsseldorf");
